@@ -14,7 +14,7 @@ spec:
     spec: 
       containers:
       - name: green-deployment
-        image: adamtravis/rollouts:blue
+        image: adamtravis/rollouts:green
         # blue, green, Orange
         ports:
         - name: http
