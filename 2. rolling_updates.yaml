@@ -14,7 +14,7 @@ spec:
     spec: 
       containers:
       - name: recreate-demo
-        image: adamtravis/rollouts:green
+        image: adamtravis/rollouts:orange
         # blue, green, Orange
         ports:
         - name: http
