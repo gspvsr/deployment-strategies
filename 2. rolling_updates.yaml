@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: recreate-demo
 spec:
-  replicas: 2
+  replicas: 10
   selector:
     matchLabels:
       name: recreate-demo
@@ -14,7 +14,7 @@ spec:
     spec: 
       containers:
       - name: recreate-demo
-        image: adamtravis/rollouts:orange
+        image: adamtravis/rollouts:green
         # blue, green, Orange
         ports:
         - name: http
