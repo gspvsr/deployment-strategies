@@ -1,0 +1,38 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: green-deployment
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      name: green-deployment
+  template:
+    metadata:
+      labels:
+        name: green-deployment
+    spec: 
+      containers:
+      - name: green-deployment
+        image: adamtravis/rollouts:blue
+        # blue, green, Orange
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: green-deployment
+  labels:
+    name: green-deployment
+spec:
+  ports:
+  - port: 80
+    targetPort: http
+    protocol: TCP
+  selector:
+    name: green-deployment
+  type: LoadBalancer
