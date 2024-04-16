@@ -35,6 +35,5 @@ spec:
     targetPort: http
     protocol: TCP
   selector:
-    matchLabels:
-      name: recreate-demo
+    name: recreate-demo
   type: LoadBalancer
