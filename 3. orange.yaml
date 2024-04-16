@@ -1,21 +1,21 @@
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
-  name: blue-deployment
+  name: orange-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      name: blue-deployment
+      name: orange-deployment
   template:
     metadata:
       labels:
-        name: blue-deployment
+        name: orange-deployment
     spec: 
       containers:
-      - name: blue-deployment
-        image: adamtravis/rollouts:blue
-        # blue, green, Orange
+      - name: orange-deployment
+        image: adamtravis/rollouts:orange
+        # orange, green, Orange
         ports:
         - name: http
           containerPort: 8080
@@ -25,9 +25,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata: 
-  name: blue-deployment
+  name: orange-deployment
   labels:
-    name: blue-deployment
+    name: orange-deployment
 spec:
   ports:
   - port: 80
