@@ -1,7 +1,7 @@
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
-  name: orange-deployment
+  name: blue-deployment
 spec:
   replicas: 3
   selector:
