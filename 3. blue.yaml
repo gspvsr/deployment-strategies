@@ -1,19 +1,19 @@
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
-  name: blue-green-deployment
+  name: blue-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      name: blue-green-deployment
+      name: blue-deployment
   template:
     metadata:
       labels:
-        name: blue-green-deployment
+        name: blue-deployment
     spec: 
       containers:
-      - name: blue-green-deployment
+      - name: blue-deployment
         image: adamtravis/rollouts:blue
         # blue, green, Orange
         ports:
@@ -25,14 +25,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata: 
-  name: blue-green-deployment
+  name: blue-deployment
   labels:
-    name: blue-green-deployment
+    name: blue-deployment
 spec:
   ports:
   - port: 80
     targetPort: http
     protocol: TCP
   selector:
-    name: blue-green-deployment
+    name: green-deployment
   type: LoadBalancer
